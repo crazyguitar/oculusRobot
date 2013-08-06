@@ -13,7 +13,7 @@ class robot:
 
         self.host = "127.0.0.1"
         self.userName = "crazyguitar"
-        self.password = "******"
+        self.password = "96201006"
         self.port = 4444
         self.oculusSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.oculusFileIO = None

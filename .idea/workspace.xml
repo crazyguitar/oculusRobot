@@ -5,8 +5,8 @@
     <ignored path="oculus_telnet.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/telnet_example.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1372745119229" ignored="false" />
-    <file path="/robot_controller.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375779146527" ignored="false" />
-    <file path="/serial_observer.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375775377417" ignored="false" />
+    <file path="/robot_controller.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375851868602" ignored="false" />
+    <file path="/serial_observer.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375849878326" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +26,7 @@
       <file leaf-file-name="robot_controller.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/robot_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="34" selection-start="281" selection-end="281" vertical-scroll-proportion="0.41436464">
+            <state line="122" column="50" selection-start="3380" selection-end="3380" vertical-scroll-proportion="0.44208494">
               <folding>
                 <element signature="e#27#40#0" expanded="true" />
               </folding>
@@ -37,10 +37,8 @@
       <file leaf-file-name="serial_observer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serial_observer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="14" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#27#40#0" expanded="true" />
-              </folding>
+            <state line="2" column="13" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,11 +116,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -224,13 +222,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="720" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17602427" sideWeight="0.6713533" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17905918" sideWeight="0.6713533" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -303,6 +301,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/robot_controller.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="34" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#27#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serial_observer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="14" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#27#40#0" expanded="true" />
@@ -313,24 +327,20 @@
     <entry file="file://$PROJECT_DIR$/serial_observer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="59" selection-start="722" selection-end="722" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#27#40#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serial_observer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#27#40#0" expanded="true" />
-          </folding>
+        <state line="2" column="13" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robot_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="34" selection-start="281" selection-end="281" vertical-scroll-proportion="0.41436464">
+        <state line="122" column="50" selection-start="3380" selection-end="3380" vertical-scroll-proportion="0.44208494">
           <folding>
             <element signature="e#27#40#0" expanded="true" />
           </folding>

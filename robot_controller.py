@@ -6,6 +6,8 @@ import time
 from serial_observer import UltrasonicData
 import random
 
+Threshold = 45
+
 
 class robot:
 
@@ -21,7 +23,6 @@ class robot:
         self.moveForwardTime = 0
         self.stop = False
         self.ultrasonicData = ultrasonicData
-        self.ultrasonicData.registerObserver(self)
 
     def connectRobot(self):
 
@@ -78,19 +79,13 @@ class robot:
     def stopRobot(self):
         self.sendRobotString("move stop")
 
-    def update(self, currentAngle):
+    def changeRobotDirection(self, Angle):
 
-        if not self.isChanging:
-            self.isChanging = True
-            self.changeRobotDirection(currentAngle)
+        if Angle < 90:
+            self.turnRobotRight(1.5)
 
-    def changeRobotDirection(self, currentServoAngle):
-
-        if currentServoAngle < 90:
-            self.turnRobotLeft(1)
-
-        elif currentServoAngle > 90:
-            self.turnRobotRight(1)
+        elif Angle > 90:
+            self.turnRobotLeft(1.5)
 
         else:
             self.turnRobotForward(2)
@@ -109,23 +104,38 @@ def main():
 
     serialInputUltrasonicData = UltrasonicData()
     oculusRobot = robot(serialInputUltrasonicData)
-    serialInputUltrasonicData.start()
     oculusRobot.connectRobot()
     oculusRobot.loginRobot()
     oculusRobot.enableRobotMove()
+    angleList = [30, 50, 70, 90, 110, 130, 150]
+
     while not oculusRobot.stop:
 
         try:
-            if not oculusRobot.isChanging:
-                oculusRobot.moveForwardTime = (oculusRobot.moveForwardTime + 1) % 5
-                oculusRobot.turnRobotForward(2)
-                oculusRobot.stopRobot()
-                time.sleep(1)
-                if oculusRobot.moveForwardTime == 0:
-                    oculusRobot.changeRobotDirection(90)
+            ultrasonicDataList = oculusRobot.ultrasonicData.getUltrasonicDataFromSerialPort()
+            if len(ultrasonicDataList) == 7:
+
+                # whether angle 90's dist is larger than threshold
+                if float(ultrasonicDataList[3]) > Threshold:
+                    oculusRobot.turnRobotForward(3)
+                    oculusRobot.stopRobot()
+                    oculusRobot.moveForwardTime = (oculusRobot.moveForwardTime + 1) % 8
+                    if oculusRobot.moveForwardTime == 0:
+                        oculusRobot.changeRobotDirection(90)
+
+                else:
+                    # change ultrasonicDataList data type to float
+                    ultrasonicDataList = [float(item) for item in ultrasonicDataList]
+
+                    if all(item < Threshold for item in ultrasonicDataList):
+                        oculusRobot.changeRobotDirection(90)
+                    else:
+                        val, idx = max((val, idx) for (idx, val) in enumerate(ultrasonicDataList))
+                        angle = angleList[idx]
+                        oculusRobot.changeRobotDirection(angle)
+
         except KeyboardInterrupt:
-            oculusRobot = True
-            serialInputUltrasonicData.stop = True
+            oculusRobot.stop = True
 
     oculusRobot.stopRobot()
     oculusRobot.disableRobotMove()

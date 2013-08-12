@@ -5,8 +5,9 @@
     <ignored path="oculus_telnet.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/telnet_example.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1372745119229" ignored="false" />
-    <file path="/robot_controller.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375851868602" ignored="false" />
+    <file path="/robot_controller.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1376275602300" ignored="false" />
     <file path="/serial_observer.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375849878326" ignored="false" />
+    <file path="/wifi_collection.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1376273968734" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +27,7 @@
       <file leaf-file-name="robot_controller.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/robot_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="10" selection-start="4173" selection-end="4173" vertical-scroll-proportion="3.9779005">
+            <state line="132" column="43" selection-start="3671" selection-end="3671" vertical-scroll-proportion="0.61141807">
               <folding>
                 <element signature="e#27#40#0" expanded="true" />
               </folding>
@@ -55,6 +56,7 @@
       <list>
         <option value="$PROJECT_DIR$/telnet_example.py" />
         <option value="$PROJECT_DIR$/serial_observer.py" />
+        <option value="$PROJECT_DIR$/wifi_collection.py" />
         <option value="$PROJECT_DIR$/robot_controller.py" />
       </list>
     </option>
@@ -90,7 +92,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -111,16 +112,17 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -228,7 +230,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18209408" sideWeight="0.6713533" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18512899" sideWeight="0.6713533" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -301,6 +303,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/robot_controller.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="10" selection-start="4173" selection-end="4173" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#27#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serial_observer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="13" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robot_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="122" column="50" selection-start="3380" selection-end="3380" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#27#40#0" expanded="true" />
@@ -356,7 +374,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/robot_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="10" selection-start="4173" selection-end="4173" vertical-scroll-proportion="3.9779005">
+        <state line="132" column="43" selection-start="3671" selection-end="3671" vertical-scroll-proportion="0.61141807">
           <folding>
             <element signature="e#27#40#0" expanded="true" />
           </folding>

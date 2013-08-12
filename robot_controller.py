@@ -5,6 +5,8 @@ import re
 import time
 from serial_observer import UltrasonicData
 import random
+import subprocess
+import shlex
 
 Threshold = 45
 
@@ -79,16 +81,25 @@ class robot:
     def stopRobot(self):
         self.sendRobotString("move stop")
 
+    def waitForRobotCollectionData(self, dataIndex):
+
+        shell_command = 'sudo ~/linux-80211n-csitool-supplementary/netlink/log_to_file ' \
+                        'tmp/log%d.dat tmp/ap_log%d.dat' % (dataIndex, dataIndex)
+        args = shlex.split(shell_command)
+        subprocess.call(args)
+
     def changeRobotDirection(self, Angle):
 
         if Angle < 90:
+            self.turnRobotBackward(0.5)
             self.turnRobotRight(1.5)
 
         elif Angle > 90:
+            self.turnRobotBackward(0.5)
             self.turnRobotLeft(1.5)
 
         else:
-            self.turnRobotForward(2)
+            self.turnRobotBackward(1)
             leftOrRight = random.randint(0, 1)
             if leftOrRight == 0:
                 self.turnRobotLeft(2)
@@ -108,6 +119,7 @@ def main():
     oculusRobot.loginRobot()
     oculusRobot.enableRobotMove()
     angleList = [30, 50, 70, 90, 110, 130, 150]
+    dataIndex = 1
 
     while not oculusRobot.stop:
 
@@ -119,6 +131,12 @@ def main():
                 if float(ultrasonicDataList[3]) > Threshold:
                     oculusRobot.turnRobotForward(3)
                     oculusRobot.stopRobot()
+
+                    # collection data
+                    oculusRobot.waitForRobotCollectionData(dataIndex)
+                    dataIndex += 1
+
+                    # whether robot move forward every 8 times
                     oculusRobot.moveForwardTime = (oculusRobot.moveForwardTime + 1) % 8
                     if oculusRobot.moveForwardTime == 0:
                         oculusRobot.changeRobotDirection(90)

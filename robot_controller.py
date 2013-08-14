@@ -1,14 +1,16 @@
 __author__ = 'chang-ning'
 
 import socket
+import getopt
 import re
 import time
 from serial_observer import UltrasonicData
 import random
 import subprocess
 import shlex
+import datetime
 
-Threshold = 45
+Threshold = 80
 
 
 class robot:
@@ -83,8 +85,9 @@ class robot:
 
     def waitForRobotCollectionData(self, dataIndex):
 
-        shell_command = 'sudo ~/linux-80211n-csitool-supplementary/netlink/log_to_file ' \
+        shell_command = 'sudo /home/chang-ning/linux-80211n-csitool-supplementary/netlink/log_to_file ' \
                         'tmp/log%d.dat tmp/ap_log%d.dat' % (dataIndex, dataIndex)
+        print shell_command
         args = shlex.split(shell_command)
         subprocess.call(args)
 
@@ -121,6 +124,8 @@ def main():
     angleList = [30, 50, 70, 90, 110, 130, 150]
     dataIndex = 1
 
+    log_time_file = open('tmp/log_time.dat', 'w')
+
     while not oculusRobot.stop:
 
         try:
@@ -131,6 +136,12 @@ def main():
                 if float(ultrasonicDataList[3]) > Threshold:
                     oculusRobot.turnRobotForward(3)
                     oculusRobot.stopRobot()
+
+                    # log time to file
+                    now = datetime.datetime.now()
+                    current_time = "%d %d %d %d %d %d %d\n" % \
+                                   (now.year, now.month, now.day, now.hour, now.minute, now.second, now.microsecond)
+                    log_time_file.write(current_time)
 
                     # collection data
                     oculusRobot.waitForRobotCollectionData(dataIndex)
@@ -157,6 +168,9 @@ def main():
 
     oculusRobot.stopRobot()
     oculusRobot.disableRobotMove()
+
+    # close log_time_file
+    log_time_file.close()
 
 
 if __name__ == '__main__':

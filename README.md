@@ -6,15 +6,16 @@ need to replug Arduino to usb port
 
 #### oepn oculus robot  
   
-	$ cd /path/to/Oculus dir
-	$ ./oculus_start.sh
-	$ python robot_controller.py  
-
-#### open csi_tool  
+	# open_interface.sh do:
+	# 1. open csi interface
+	# 2. open oculus server	
+	$ sudo ./open_interface.sh
 	
-	$ sudo service network-manager stop
-	$ ./setup_monitor_csi.sh 64 HT20
-
+	# start oculus robot
+	$ python robot_controller.py [-c][-m] moveTime
+	# -c imply whether to collection data
+	# -m moveTime imply how many forward time for robot  
+	
 addition equipment
 ------------------
 

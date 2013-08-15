@@ -1,7 +1,6 @@
 __author__ = 'chang-ning'
 
 import socket
-import getopt
 import re
 import time
 from serial_observer import UltrasonicData
@@ -9,6 +8,8 @@ import random
 import subprocess
 import shlex
 import datetime
+import sys
+import getopt
 
 Threshold = 80
 
@@ -27,6 +28,11 @@ class robot:
         self.moveForwardTime = 0
         self.stop = False
         self.ultrasonicData = ultrasonicData
+        self.collectionData = False
+
+    def setRobotCollectionData(self):
+
+        self.collectionData = True
 
     def connectRobot(self):
 
@@ -116,6 +122,16 @@ class robot:
 
 def main():
 
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "cm:")
+
+    except getopt.GetoptError as err:
+        print str(err)
+        sys.exit(2)
+
+    # default moveTime
+    moveTime = 8
+
     serialInputUltrasonicData = UltrasonicData()
     oculusRobot = robot(serialInputUltrasonicData)
     oculusRobot.connectRobot()
@@ -123,6 +139,12 @@ def main():
     oculusRobot.enableRobotMove()
     angleList = [30, 50, 70, 90, 110, 130, 150]
     dataIndex = 1
+
+    for value, parameter in opts:
+        if value == '-c':
+            oculusRobot.setRobotCollectionData()
+        if value == '-m':
+            moveTime = int(parameter)
 
     log_time_file = open('tmp/log_time.dat', 'w')
 
@@ -134,6 +156,15 @@ def main():
 
                 # whether angle 90's dist is larger than threshold
                 if float(ultrasonicDataList[3]) > Threshold:
+
+                    if float(ultrasonicDataList[0]) < (Threshold - 30):
+                        oculusRobot.turnRobotBackward(0.5)
+                        oculusRobot.turnRobotLeft(1)
+
+                    if float(ultrasonicDataList[6]) < (Threshold - 30):
+                        oculusRobot.turnRobotBackward(0.5)
+                        oculusRobot.turnRobotRight(1)
+
                     oculusRobot.turnRobotForward(3)
                     oculusRobot.stopRobot()
 
@@ -143,12 +174,13 @@ def main():
                                    (now.year, now.month, now.day, now.hour, now.minute, now.second, now.microsecond)
                     log_time_file.write(current_time)
 
-                    # collection data
-                    oculusRobot.waitForRobotCollectionData(dataIndex)
-                    dataIndex += 1
+                    if oculusRobot.collectionData:
+                        # collection data
+                        oculusRobot.waitForRobotCollectionData(dataIndex)
+                        dataIndex += 1
 
                     # whether robot move forward every 8 times
-                    oculusRobot.moveForwardTime = (oculusRobot.moveForwardTime + 1) % 8
+                    oculusRobot.moveForwardTime = (oculusRobot.moveForwardTime + 1) % moveTime
                     if oculusRobot.moveForwardTime == 0:
                         oculusRobot.changeRobotDirection(90)
 

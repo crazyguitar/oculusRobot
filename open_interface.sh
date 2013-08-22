@@ -3,6 +3,7 @@
 cd ~/linux-80211n-csitool-supplementary/injection
 ./setup_monitor_csi.sh 64 HT20
 startOrNot=`service network-manager status| grep stop`
+echo $startOrNot
 if [ ${#startOrNot} == 0 ];then
 	sudo service network-manager stop
 fi

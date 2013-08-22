@@ -10,6 +10,7 @@ import shlex
 import datetime
 import sys
 import getopt
+import os
 
 Threshold = 80
 
@@ -91,11 +92,17 @@ class robot:
 
     def waitForRobotCollectionData(self, dataIndex):
 
-        shell_command = 'sudo /home/chang-ning/linux-80211n-csitool-supplementary/netlink/log_to_file ' \
-                        'tmp/log%d.dat tmp/ap_log%d.dat' % (dataIndex, dataIndex)
-        print shell_command
-        args = shlex.split(shell_command)
-        subprocess.call(args)
+        while True:
+            shell_command = 'sudo /home/chang-ning/linux-80211n-csitool-supplementary/netlink/log_to_file ' \
+                            'tmp/log%d.dat tmp/ap_log%d.dat' % (dataIndex, dataIndex)
+            print shell_command
+            args = shlex.split(shell_command)
+            subprocess.call(args)
+
+            fileName = 'tmp/log%d.dat' % dataIndex
+            statInfo = os.stat(fileName)
+            if statInfo.st_size > 0:
+                break
 
     def changeRobotDirection(self, Angle):
 

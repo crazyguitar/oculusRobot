@@ -5,7 +5,7 @@
     <ignored path="oculus_telnet.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/telnet_example.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1372745119229" ignored="false" />
-    <file path="/robot_controller.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1376539247024" ignored="false" />
+    <file path="/robot_controller.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1377161012484" ignored="false" />
     <file path="/serial_observer.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1375849878326" ignored="false" />
     <file path="/wifi_collection.py" changelist="715f4d9e-8626-464b-a82b-d2360072e396" time="1376273968734" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +32,7 @@
       <file leaf-file-name="robot_controller.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/robot_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="25" selection-start="3780" selection-end="3780" vertical-scroll-proportion="0.45119706">
+            <state line="103" column="36" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.5801105">
               <folding>
                 <element signature="e#27#40#0" expanded="true" />
               </folding>
@@ -123,11 +123,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -427,7 +427,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/robot_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="25" selection-start="3780" selection-end="3780" vertical-scroll-proportion="0.45119706">
+        <state line="103" column="36" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.5801105">
           <folding>
             <element signature="e#27#40#0" expanded="true" />
           </folding>
